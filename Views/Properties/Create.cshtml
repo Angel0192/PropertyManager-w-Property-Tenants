@@ -1,0 +1,19 @@
+@model PropertyManager.Models.Property
+
+<h1>Add New Property</h1>
+<form asp-action="Create">
+    <div class="form-group mb-2">
+        <label asp-for="PropertyName"></label>
+        <input asp-for="PropertyName" class="form-control" />
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="MonthlyRent"></label>
+        <input asp-for="MonthlyRent" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

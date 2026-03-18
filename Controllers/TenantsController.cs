@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering; // Required for SelectList
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PropertyManager.Models;
 
@@ -18,23 +18,18 @@ namespace PropertyManager.Controllers
             _context = context;
         }
 
-        // GET: Tenants
         public async Task<IActionResult> Index()
         {
-            // .Include(t => t.Property) allows us to show the Property Name in the list
             var tenants = await _context.Tenants.Include(t => t.Property).ToListAsync();
             return View(tenants);
         }
 
-        // GET: Tenants/Create
         public IActionResult Create()
         {
-            // This populates the dropdown list for the View
             ViewBag.PropertyList = new SelectList(_context.Properties, "PropertyID", "PropertyName");
             return View();
         }
 
-        // POST: Tenants/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TenantID,FirstName,LastName,Email,PhoneNum,PropertyID")] Tenant tenant)
@@ -49,7 +44,6 @@ namespace PropertyManager.Controllers
             return View(tenant);
         }
 
-        // GET: Tenants/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -61,7 +55,6 @@ namespace PropertyManager.Controllers
             return View(tenant);
         }
 
-        // POST: Tenants/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("TenantID,FirstName,LastName,Email,PhoneNum,PropertyID")] Tenant tenant)
@@ -86,7 +79,6 @@ namespace PropertyManager.Controllers
             return View(tenant);
         }
 
-        // GET: Tenants/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -94,13 +86,12 @@ namespace PropertyManager.Controllers
             var tenant = await _context.Tenants
                 .Include(t => t.Property)
                 .FirstOrDefaultAsync(m => m.TenantID == id);
-                
+
             if (tenant == null) return NotFound();
 
             return View(tenant);
         }
 
-        // POST: Tenants/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

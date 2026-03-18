@@ -17,19 +17,17 @@ namespace PropertyManager.Controllers
             _context = context;
         }
 
-        // GET: Properties
         public async Task<IActionResult> Index()
         {
-            // Returns the list of all properties from your Docker SQL DB
             return View(await _context.Properties.ToListAsync());
         }
 
-        // GET: Properties/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
 
             var property = await _context.Properties
+                .Include(p => p.Tenants)
                 .FirstOrDefaultAsync(m => m.PropertyID == id);
 
             if (property == null) return NotFound();
@@ -37,13 +35,11 @@ namespace PropertyManager.Controllers
             return View(property);
         }
 
-        // GET: Properties/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Properties/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PropertyID,PropertyName,Address,UnitNum,MonthlyRent")] Property property)
@@ -57,7 +53,6 @@ namespace PropertyManager.Controllers
             return View(property);
         }
 
-        // GET: Properties/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -68,7 +63,6 @@ namespace PropertyManager.Controllers
             return View(property);
         }
 
-        // POST: Properties/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("PropertyID,PropertyName,Address,UnitNum,MonthlyRent")] Property property)
@@ -92,7 +86,6 @@ namespace PropertyManager.Controllers
             return View(property);
         }
 
-        // GET: Properties/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -105,7 +98,6 @@ namespace PropertyManager.Controllers
             return View(property);
         }
 
-        // POST: Properties/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

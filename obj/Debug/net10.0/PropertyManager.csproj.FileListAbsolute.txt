@@ -222,3 +222,4 @@
 /Users/angellopez/Library/CloudStorage/OneDrive-UniversityofSouthernIndiana/Classes/Sophmore Year/Spring/CS 458/Assignments/Assignment 6/PropertyManager/obj/Debug/net10.0/PropertyManager.pdb
 /Users/angellopez/Library/CloudStorage/OneDrive-UniversityofSouthernIndiana/Classes/Sophmore Year/Spring/CS 458/Assignments/Assignment 6/PropertyManager/obj/Debug/net10.0/PropertyManager.genruntimeconfig.cache
 /Users/angellopez/Library/CloudStorage/OneDrive-UniversityofSouthernIndiana/Classes/Sophmore Year/Spring/CS 458/Assignments/Assignment 6/PropertyManager/obj/Debug/net10.0/ref/PropertyManager.dll
+/Users/angellopez/Library/CloudStorage/OneDrive-UniversityofSouthernIndiana/Classes/Sophmore Year/Spring/CS 458/Assignments/Assignment 6/PropertyManager/obj/Debug/net10.0/PropertyManager.sourcelink.json
