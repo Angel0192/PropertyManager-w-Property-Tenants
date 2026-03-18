@@ -109,5 +109,18 @@ namespace PropertyManager.Controllers
         {
             return _context.Tenants.Any(e => e.TenantID == id);
         }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var tenant = await _context.Tenants
+                .Include(t => t.Property) // You need this to see the building name!
+                .FirstOrDefaultAsync(m => m.TenantID == id);
+
+            if (tenant == null) return NotFound();
+
+            return View(tenant);
+        }
     }
 }

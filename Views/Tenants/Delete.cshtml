@@ -5,6 +5,9 @@
     <dl class="row">
         <dt class="col-sm-2">Name</dt>
         <dd class="col-sm-10">@Model.FirstName @Model.LastName</dd>
+
+        <dt class="col-sm-2">Contact Information</dt>
+        <dd class="col-sm-10">Email: @Model.Email | Phone Number: @Model.PhoneNum</dd>
         
         <dt class="col-sm-2">Property</dt>
         <dd class="col-sm-10">@Model.Property?.PropertyName</dd>

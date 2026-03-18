@@ -5,18 +5,32 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
+            
+            <!-- First Name -->
             <div class="form-group mb-2">
-                <label asp-for="FirstName"></label>
+                <label asp-for="FirstName">First Name:</label>
                 <input asp-for="FirstName" class="form-control" />
             </div>
+
+            <!-- Last Name -->
             <div class="form-group mb-2">
-                <label asp-for="LastName"></label>
+                <label asp-for="LastName">Last Name:</label>
                 <input asp-for="LastName" class="form-control" />
             </div>
+
+            <!-- Email -->
             <div class="form-group mb-2">
-                <label asp-for="Email"></label>
+                <label asp-for="Email">Email:</label>
                 <input asp-for="Email" class="form-control" />
             </div>
+
+            <!-- Phone Number -->
+            <div class="form-group mb-2">
+                <label asp-for="PhoneNum">Phone Number:</label>
+                <input asp-for="PhoneNum" class="form-control"/>
+            </div>
+
+            <!-- Property Selection -->
             <div class="form-group mb-3">
                 <label>Assigned Property</label>
                 <select asp-for="PropertyID" class="form-control" asp-items="ViewBag.PropertyList">

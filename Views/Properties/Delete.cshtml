@@ -3,6 +3,39 @@
 <h3>Are you sure you want to delete @Model.PropertyName?</h3>
 <div>
     <p>Address: @Model.Address</p>
+
+
+    <div class="mt-4">
+    <h4>Current Tenants in those Properties will be Deleted.</h4>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Tenants != null && Model.Tenants.Any())
+            {
+                foreach (var tenant in Model.Tenants)
+                {
+                    <tr>
+                        <td>@tenant.FirstName @tenant.LastName</td>
+                        <td>@tenant.Email</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2" class="text-muted">No tenants assigned to this property.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="PropertyID" />
         <button type="submit" class="btn btn-danger">Delete</button>

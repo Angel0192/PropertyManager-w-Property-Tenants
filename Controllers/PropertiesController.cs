@@ -59,7 +59,7 @@ namespace PropertyManager.Controllers
 
             var property = await _context.Properties.FindAsync(id);
             if (property == null) return NotFound();
-            
+
             return View(property);
         }
 
@@ -86,13 +86,15 @@ namespace PropertyManager.Controllers
             return View(property);
         }
 
+        // GET: Properties/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
 
             var property = await _context.Properties
+                .Include(p => p.Tenants) // THIS IS THE MISSING PIECE
                 .FirstOrDefaultAsync(m => m.PropertyID == id);
-            
+
             if (property == null) return NotFound();
 
             return View(property);

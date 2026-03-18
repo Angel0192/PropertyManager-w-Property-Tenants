@@ -6,20 +6,26 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <input type="hidden" asp-for="PropertyID" />
-            
+
             <div class="form-group mb-2">
-                <label asp-for="PropertyName"></label>
+                <label asp-for="PropertyName">Property Name:</label>
                 <input asp-for="PropertyName" class="form-control" />
             </div>
             <div class="form-group mb-2">
-                <label asp-for="Address"></label>
+                <label asp-for="Address">Address:</label>
                 <input asp-for="Address" class="form-control" />
             </div>
+
             <div class="form-group mb-2">
-                <label asp-for="MonthlyRent"></label>
+                <label asp-for="UnitNum">Unit Number:</label>
+                <input asp-for="UnitNum" class="form-control" />
+            </div>
+
+            <div class="form-group mb-2">
+                <label asp-for="MonthlyRent">Monthly Rent:</label>
                 <input asp-for="MonthlyRent" class="form-control" />
             </div>
-            
+
             <button type="submit" class="btn btn-success mt-2">Update</button>
             <a asp-action="Index" class="btn btn-secondary mt-2">Back</a>
         </form>

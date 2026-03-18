@@ -3,18 +3,37 @@
 <h1>Edit Tenant</h1>
 <form asp-action="Edit">
     <input type="hidden" asp-for="TenantID" />
+
+    <!-- First Name -->
     <div class="form-group mb-2">
-        <label asp-for="FirstName"></label>
+        <label asp-for="FirstName">First Name</label>
         <input asp-for="FirstName" class="form-control" />
     </div>
+
+    <!-- Last Name -->
     <div class="form-group mb-2">
-        <label asp-for="LastName"></label>
+        <label asp-for="LastName">Last Name</label>
         <input asp-for="LastName" class="form-control" />
     </div>
+
+    <!-- Email -->
+    <div class="form-group mb-2">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control"/>
+    </div>
+
+    <!-- Phone Num -->
+    <div class="form-group mb-2">
+        <label asp-for="PhoneNum"> Phone Number</label>
+        <input asp-for="PhoneNum" class="form-control"/>
+    </div>
+
+    <!-- Property Selection -->
     <div class="form-group mb-3">
         <label>Property</label>
         <select asp-for="PropertyID" class="form-control" asp-items="ViewBag.PropertyList"></select>
     </div>
+
     <button type="submit" class="btn btn-success">Update</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>

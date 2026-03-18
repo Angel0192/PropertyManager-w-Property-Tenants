@@ -8,27 +8,18 @@ namespace PropertyManager.Models
 {
     public class Tenant
     {
-        public Property Property { get; set; } = null!;
+        // 1. Make this nullable so the form doesn't require a full Property object
+        public Property? Property { get; set; } 
 
-        // Tenant ID
-        public int TenantID{get; set;}
+        public int TenantID { get; set; }
 
-        // First Name
-        [Required(ErrorMessage = "First Name is Required")]
-        public string FirstName{get; set;}
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
 
-        // Last Name
-        [Required(ErrorMessage = "Last Name is Required")]
-        public string LastName{get; set;}
+        // 2. Remove 'required' so the Edit form doesn't fail if these are missing
+        public string? Email { get; set; }
+        public string? PhoneNum { get; set; }
 
-        // Email
-        [EmailAddress]
-        public required string Email{get; set;}
-
-        // Phone Number
-        public required string PhoneNum{get; set;}
-
-        // Property ID (FK)
-        public int PropertyID{get; set;}
+        public int PropertyID { get; set; }
     }
 }
